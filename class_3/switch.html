@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>JavaScript if</h1>
+    <p id="demo">Good evening!</p>
+
+    <script>
+      let day;
+      let date = new Date();
+      switch ((day = date.getDay())) {
+        case 0:
+          day = "Monday";
+          break;
+        case 1:
+          day = "Tuesday";
+          break;
+        case 2:
+          day = "Wednesday";
+          break;
+      }
+
+      document.getElementById("demo").innerHTML = day;
+    </script>
+  </body>
+</html>
