@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var emp = {
+        id: 1,
+        fname: "Abhishek",
+        lname: "Singh",
+        rollno: 23,
+        fullName: function () {
+          return this.fname + " " + this.lname;
+        },
+      };
+      document.write(emp.id + " " + emp.fname + " " + emp.rollno);
+      console.log(emp.fullName());
+    </script>
+  </body>
+</html>
