@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 10px;
+      padding: 0;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+      background-color: white;
+    }
+    input[type="text"],
+    input[type="number"],
+    button {
+      background-color: rgb(221, 219, 219);
+      padding: 5px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 7px 11px;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    table {
+      border-collapse: collapse;
+      width: 60%;
+    }
+    th,
+    td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+  <body>
+    <h1>Form Submission</h1>
+    <form onsubmit="addPerson(event)">
+      <label for="name">Name: </label>
+      <input id="name" autocomplete="off" type="text" required /> <br />
+      <label for="age">Age:</label>
+      <input id="age" type="number" required /> <br />
+      <button type="submit">Submit</button>
+    </form>
+    <div class="table"></div>
+    <script>
+      let people = [];
+
+      function addPerson(event) {
+        event.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let age = document.getElementById("age").value;
+
+        let person = {
+          name: name,
+          age: age,
+        };
+
+        people.push(person);
+
+        displayPeople();
+
+        document.getElementById("name").value = "";
+        document.getElementById("age").value = "";
+      }
+
+      function displayPeople() {
+        let table = "<table>";
+        table += "<tr><th>Name</th><th>Age</th></tr>";
+
+        for (let person of people) {
+          table += "<tr>";
+          table += "<td>" + person.name + "</td>";
+          table += "<td>" + person.age + "</td>";
+          table += "</tr>";
+        }
+
+        table += "</table>";
+        document.querySelector(".table").innerHTML = table;
+      }
+    </script>
+  </body>
+</html>
